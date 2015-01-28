@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<base href="http://localhost/wordpress" />
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technical Implementation of the Ortext Design | Communicating with Prisoners</title>
+ 
+
+
+
+
+<link rel='stylesheet' id='ortext-fonts-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='ortext-style-css'  href='http://cwpc.github.io/wp-content/themes/ortext/style.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='ortext-layout-style-css'  href='http://cwpc.github.io/wp-content/themes/ortext/layouts/content.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='ortext_fontawesome-css'  href='http://cwpc.github.io/wp-content/themes/ortext/fonts/font-awesome/css/font-awesome.min.css?ver=4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='tablepress-default-css'  href='http://cwpc.github.io/wp-content/plugins/tablepress/css/default.min.css?ver=1.5.1' type='text/css' media='all' />
+<style id='tablepress-default-inline-css' type='text/css'>
+.tablepress{width:auto;border:2px solid;margin:0 auto 1em}.tablepress td,.tablepress thead th{text-align:center}.tablepress .column-1{text-align:left}.tablepress-table-name{font-weight:900;text-align:center;font-size:20px;line-height:1.3em}.tablepress tfoot th{font-size:14px}.tablepress-table-description{font-weight:900;text-align:center}
+</style>
+<script type='text/javascript' src='http://cwpc.github.io/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='http://cwpc.github.io/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+
+ 
+
+<link rel='canonical' href='http://cwpc.github.io/ortext-implementation-design/' />
+<link rel='shortlink' href='http://cwpc.github.io/?p=17171' />
+</head>
+
+<body class="page page-id-17171 page-template-default custom-background">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56314084-1', 'auto');
+  ga('send', 'pageview');
+
+</script><div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+			<div class="title-box">
+				<h1 class="site-title"><a href="http://cwpc.github.io/" rel="home">Communicating with Prisoners</a></h1>
+				<h2 class="site-description">Public Interest Analysis</h2>
+			</div>
+		</div>
+		<div id="scroller-anchor"></div>
+		<nav id="site-navigation" class="main-navigation clear" role="navigation">
+			<span class="menu-toggle"><a href="#">menu</a></span>
+			<div class="menu-left-nav-container"><ul id="menu-left-nav" class="menu"><li id="menu-item-10830" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10830"><a title="outline of sections" href="http://cwpc.github.io/outline-post/">Outline</a></li>
+<li id="menu-item-11571" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11571"><a title="context-sensitive notes link" href="http://cwpc.github.io/outline-notes/">Notes</a></li>
+<li id="menu-item-11570" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11570"><a title="context-sensitive data link" href="http://cwpc.github.io/list-datasets/">Data</a></li>
+</ul></div>			
+			<div id="rng">
+				<div id="menu-secondary" class="menu-secondary"><ul id="menu-secondary-items" class="menu-items"><li id="menu-item-10840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10840"><a title="about this ortext" href="http://cwpc.github.io/about/">About</a></li>
+</ul></div>				<div class="search-toggle">
+					<span class="fa fa-search"></span>
+					<a href="#search-container" class="screen-reader-text">search</a>
+				</div>
+			</div>
+		</nav><!-- #site-navigation -->				
+		<div id="header-search-container" class="search-box-wrapper clear hide">
+			<div class="search-box clear">
+				<form role="search" method="get" class="search-form" action="http://cwpc.github.io/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form>			</div>
+		</div>						
+	</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+			
+				
+<article id="post-17171" class="post-17171 page type-page status-publish hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">Technical Implementation of the Ortext Design</h1>	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p>The <a class="otx-link" title="Front Page: Communicating with Prisoners" href="http://cwpc.github.io/?otxkey=page-11559"><em>Communicating with Prisoners</em> ortext</a> re-interprets basic WordPress features to support its design. We developed the ortext design with attention to limiting technical knowledge and code development to the minimum necessary to achieve <a class="otx-link" title="Overview of the Ortext Design" href="http://cwpc.github.io/overview-ortext-design/?otxkey=page-21368">ortext content design objectives</a>.</p>
+<p>The main text of the ortext is ordered chunks of text called articles. Articles are content with <em>post_type</em> <em>post</em> in WordPress. Ordinarily, posts in WordPress don&#8217;t necessarily have any substantial relation in time. In the ortext, articles ( WordPress posts) are substantially related linearly in time. Articles integrate relatively smoothly into larger sections of text.</p>
+<p>Post dates are used for <a class="otx-link" title="Ortext Timelining" href="http://cwpc.github.io/ortext-timelining/?otxkey=page-17189">linearly ordering content</a>. WordPress provides extensive native support for post dates. Post dates can be understood as a flexible page-ordering mechanism that works across post types.</p>
+<p>Categories are interpreted as defining ortext sections. The term section is used rather than category to emphasize that chunks of main text (articles) within a section are substantially ordered. Notes, statistics, and datasets, which are also grouped using the common section (category) divisions, are only weakly ordered. Those types of content within a section mainly have topical relation to the section. Sections are presented with the native WordPress support for category display.</p>
+<p>To get categories ordered in accordance with an outline, category names are prefixed with outline headings. That&#8217;s formally bad design. But it&#8217;s a very simple solution to outline ordering using only native WordPress functionality.</p>
+<p>Tags are used to implement an index. Native WordPress support for a tag template and a tag cloud provide an analog to a book index. Unlike a book index, the ortext tag-based index isn&#8217;t comprehensive. However, search functionality provides a dynamic digital alternative to a static index. In the ortext, terms worth indexing include keywords that don&#8217;t generate informative search results.</p>
+<p>The ortext divides the scholarly concept of footnotes or endnotes into two forms. Linked text typically connects to substantial content: notes (textual content with <em>post_type</em> <em>notes</em>), statistics (quantitative or mathematical descriptive text with <em>post_type statistics),</em> and datasets (a large content collection, typically in the form of spreadsheets of data hosted external to WordPress). A second link form, a caret (^) at the end of a sentence, provides a link to only a bibliographic citation (contained in <em>post_type</em> <em>refs</em>). Carets are thus like footnotes or endnotes that contain only pointers to specific bibliographic references.</p>
+<p>This ortext includes many tables. To see the tables included in the ortext, you must install and activate the excellent <a href="https://wordpress.org/plugins/tablepress/">TablePress plugin</a>. <a class="otx-link" title="Ortext Key Linking" href="http://cwpc.github.io/ortext-key-linking/?otxkey=page-17181">Internal key linking</a> works within TablePress tables. Such links must be added manually.</p>
+<p>This ortext includes many datasets. Instances of most of them are hosted in the <em>data</em> folder within the WordPress standard <em>uploads</em> folder. The datasets integrate with WordPress content via <a class="otx-link" title="Ortext Datalinks Support Externally Hosted Datasets" href="http://cwpc.github.io/ortext-datalinks/?otxkey=page-17206"><em>otx-datalinks</em> meta-keys and the shortcode [otxdata]</a>. That shortcode produces a linked list of datsets based on the contexts of the <em>otx-datalinks</em> meta-keys. By setting values for <em>otx-datalinks</em> keys, you can easily multi-home and re-home existing and revised versions of the datasets.</p>
+<p>The ortext has no separate, static bibliography.  Bibliographic references are accessible through direct links and <a class="otx-link" title="Search References" href="http://cwpc.github.io/search-references/?otxkey=page-11593">a special search form</a>. An inside academic joke is that the only part of scholarly books that scholars read is the bibliography. The ortext design discourages that sort of status-obsessing behavior.</p>
+<p>The ortext includes a general means to set up specific, context-sensitive links. The primary menu includes a custom item with URL <em>http://context-notes</em> under the navigation label <em>Notes.</em> The primary menu also includes a custom item with URL <em>http://context-data</em> under the navigation label <em>Data</em>. These items create context-sensitive links. They link to the notes and statistics/data sections associated with the content currently being viewed, or to global overview lists. These links are independently context-sensitive. Hence they work appropriately (and differently) when viewing a section of <em>Notes</em> or a section of <em>Data</em>.</p>
+<p>The context-sensitive links function with any theme. They depend, however, on a particular content structure. For a different content structure, you can easily create different context-sensitive links by adapting the relevant function in the <a class="otx-link" title="Formatting an Ortext" href="http://cwpc.github.io/formatting-ortext/?otxkey=page-21384">Ortext Formatting plugin</a>.</p>
+<p>WordPress has tended to be used for large collections of content chunks that are primarily discrete and not intellectually challenging. The ortext design uses WordPress to encourage in-depth reading, pondering, and analysis of content chunks carefully designed in relation to each other.</p>
+<div class="make-outline"><li class="pagenav"><h3>Learn more about making an ortext:</h3><ul><li class="page_item page-item-10823"><a href="http://cwpc.github.io/about/">About this Ortext</a></li>
+<li class="page_item page-item-21368"><a href="http://cwpc.github.io/overview-ortext-design/">Overview of the Ortext Design</a></li>
+<li class="page_item page-item-17171 current_page_item"><a href="http://cwpc.github.io/ortext-implementation-design/">Technical Implementation of the Ortext Design</a></li>
+<li class="page_item page-item-21389"><a href="http://cwpc.github.io/make-ortext/">Make Your Own Ortext</a></li>
+<li class="page_item page-item-19369"><a href="http://cwpc.github.io/replicate-communicating-prisoners-ortext/">How to Replicate <i>Communicating with Prisoners</i> Ortext</a></li>
+<li class="page_item page-item-21384"><a href="http://cwpc.github.io/formatting-ortext/">Formatting an Ortext</a></li>
+<li class="page_item page-item-17206"><a href="http://cwpc.github.io/ortext-datalinks/">Ortext Datalinks Support Externally Hosted Datasets</a></li>
+<li class="page_item page-item-17189"><a href="http://cwpc.github.io/ortext-timelining/">Ortext Timelining</a></li>
+<li class="page_item page-item-17181 page_item_has_children"><a href="http://cwpc.github.io/ortext-key-linking/">Ortext Key Linking</a>
+<ul class='children'>
+	<li class="page_item page-item-18082"><a href="http://cwpc.github.io/ortext-key-linking/flipping-key-links-standard-hyperlinks/">Flipping Between Key Links and Standard Hyperlinks</a></li>
+	<li class="page_item page-item-17752"><a href="http://cwpc.github.io/ortext-key-linking/advantages-disadvantages-key-linking/">Advantages and Disadvantages of Key Linking</a></li>
+</ul>
+</li>
+<li class="page_item page-item-17195"><a href="http://cwpc.github.io/ortext-bibtex-importer/">Ortext BibTex to WordPress Reference Importer</a></li>
+</ul></li></div>			</div><!-- .entry-content -->
+	<footer class="entry-footer">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+				
+			
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+	</div><!-- #content -->
+	
+		<footer id="colophon" class="site-footer" role="contentinfo">
+						<div class="site-info">
+				<nav id="site-navigation" class="main-navigation clear" role="navigation">
+					<span class="menu-toggle"><a href="#">menu</a></span>
+					<div class="menu-left-nav-container"><ul id="menu-left-nav-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10830"><a title="outline of sections" href="http://cwpc.github.io/outline-post/">Outline</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11571"><a title="context-sensitive notes link" href="http://cwpc.github.io/outline-notes/">Notes</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11570"><a title="context-sensitive data link" href="http://cwpc.github.io/list-datasets/">Data</a></li>
+</ul></div>			
+					<div id="rng">
+						<div id="menu-secondary" class="menu-secondary"><ul id="menu-secondary-items" class="menu-items"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10840"><a title="about this ortext" href="http://cwpc.github.io/about/">About</a></li>
+</ul></div>						<div class="search-toggle-bottom">
+							<span class="fa fa-search"></span>
+							<a href="#search-container" class="screen-reader-text">search</a>
+						</div>
+					</div>			
+					<div id="header-search-container" class="search-box-wrapper-bottom clear hide">
+						<div class="search-box clear">
+							<form role="search" method="get" class="search-form" action="http://cwpc.github.io/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />
+				</label>
+				<input type="submit" class="search-submit" value="Search" />
+			</form>						</div>
+					</div>	
+					<div id="footer-tagline">
+						<a href="http://cwpc.github.io/">Communicating with Prisoners</a>	
+					</div>
+				</nav><!-- #site-navigation -->				
+			</div><!-- .site-info -->
+		</footer><!-- #colophon -->
+
+</div><!-- #page -->
+
+<script type='text/javascript' src='http://cwpc.github.io/wp-content/themes/ortext/js/superfish.min.js?ver=1.7.4'></script>
+<script type='text/javascript' src='http://cwpc.github.io/wp-content/themes/ortext/js/superfish-settings.js?ver=1.7.4'></script>
+<script type='text/javascript' src='http://cwpc.github.io/wp-content/themes/ortext/js/navigation.js?ver=20120206'></script>
+<script type='text/javascript' src='http://cwpc.github.io/wp-content/themes/ortext/js/skip-link-focus-fix.js?ver=20130115'></script>
+<script type='text/javascript' src='http://cwpc.github.io/wp-content/themes/ortext/js/hide-search.js?ver=20120206'></script>
+<script type='text/javascript' src='http://cwpc.github.io/wp-content/themes/ortext/js/show-hide-comments.js?ver=1.0'></script>
+
+</body>
+</html>
+
+
+
+<!-- Dynamic page generated in 0.185 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2015-01-27 23:50:28 -->
+
+<!-- super cache -->
