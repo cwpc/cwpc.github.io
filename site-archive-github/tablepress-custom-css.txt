@@ -1,0 +1,37 @@
+
+The Communicating with Prisoners ortext requires the TablePress plugin. Once you have activited that plugin, insert the code between the lines below into the custom css box at TablePress->Plugin Options.  Once you have entered the code (don't miss the last curly brackets), press save.
+
+---------------------------------------------------
+
+.tablepress {
+	width: auto;
+	border: 2px solid;
+	margin: 0 auto 1em;
+}
+
+.tablepress td,
+.tablepress thead th {
+	text-align: center;
+}
+
+.tablepress .column-1 {
+	text-align: left;
+}
+
+.tablepress-table-name {
+	font-weight: 900;
+	text-align: center;
+	font-size: 20px;
+	line-height: 1.3em;
+}
+
+.tablepress tfoot th {
+	font-size: 14px;
+}
+
+.tablepress-table-description {
+	font-weight: 900;
+	text-align: center;
+}
+
+---------------------------------------------------------------
